@@ -130,7 +130,7 @@ public class MapCtrl : MonoBehaviour
         }
         return null;
     }
-    private int size = 0;
+    public int size = 0;
     private bool b = true;
 
     private bool isFull()
@@ -262,7 +262,13 @@ public class MapCtrl : MonoBehaviour
         CheckFinish();
         SetBtnColorState();
         SetRotation();
-        if (isFull()&&IsFinishLv()&&isClick)
+        UpdateFinishLv();
+
+    }
+
+    private void UpdateFinishLv()
+    {
+        if (isFull() && IsFinishLv() && isClick)
         {
             foreach (BtnColor btn in BtnColors)
             {
@@ -274,12 +280,12 @@ public class MapCtrl : MonoBehaviour
                     one.IsObstacle = true;
                 }
             }
-            Camera.main.orthographicSize += 0.02f;
             View.Instance.setGameFinishUI();
             View.Instance.setGameUI(false);
             View.Instance.setCancelBtn(false);
             int mCurrentLv = View.Instance.GameUI.GetmLv();
             View.Instance.ChooseLvUI.SetFinish(mCurrentLv);
+            Camera.main.orthographicSize += 0.02f;
             if (size == 0)
             {
                 View.Instance.GameFinishUI.SetBtnNotClick(true);
@@ -290,7 +296,7 @@ public class MapCtrl : MonoBehaviour
                 {
                     size = 7;
                 }
-                else if(aaa==66)
+                else if (aaa == 66)
                 {
                     size = 8;
                 }
@@ -331,8 +337,8 @@ public class MapCtrl : MonoBehaviour
             }
 
         }
-
     }
+
     public  void SetInitBtn()
     {
         foreach (BtnColor btn in BtnColors)

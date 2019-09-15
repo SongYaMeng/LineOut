@@ -37,6 +37,10 @@ public class GameFinishUI : MonoBehaviour
     }
     public IEnumerator WaitInit()
     {
+
+       mapCtrl.isClick = false;
+        mapCtrl.size = 0;
+
         yield return new WaitForSeconds(0.2f);
         mFinishBtn.enabled = true;
         mapCtrl.SetInitBtn();

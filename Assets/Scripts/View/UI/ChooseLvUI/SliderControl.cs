@@ -2,30 +2,24 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
-public class SliderControl : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
+public class SliderControl : MonoBehaviour
 {
-
     public Scrollbar m_Scrollbar;
     public ScrollRect m_ScrollRect;
     public float SmoothValue = 0.1f;
     private float mTargetValue;
+    private const float MOVE_SPEED = 1F;
+    private const float SMOOTH_TIME = 0.2F;
+    private float mMoveSpeed = 0f;
+    public bool mNeedMove = false;
 
-    public AnimationCurve _Clip;
-    private void Start()
-    {
-        _Clip.postWrapMode = WrapMode.Once;
-
-    }
-
-    private bool mNeedMove = false;
-
-
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerDown( )
     {
         mNeedMove = false;
     }
-    public  void OnPointerUp(PointerEventData eventData)
+    public  void OnPointerUp()
     {
         // 判断当前位于哪个区间，设置自动滑动至的位置
         if (m_Scrollbar.value <= 0.125f)
@@ -82,32 +76,16 @@ public class SliderControl : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     void Update()
     {
         if (mNeedMove)
-        {          
-            if (m_Scrollbar.value < mTargetValue)
+        {
+            if (Mathf.Abs(m_Scrollbar.value - mTargetValue) < 0.01f)
             {
-                time += Time.deltaTime;
-                float value = _Clip.Evaluate(time) * SmoothValue;
-                m_Scrollbar.value += value;
-                if (m_Scrollbar.value >= mTargetValue)
-                {
-                    m_Scrollbar.value = mTargetValue;
-                    mNeedMove = false;
-                    time = 0f;
-                }
+                m_Scrollbar.value = mTargetValue;
+                mNeedMove = false;
+                return;
             }
-            else if (m_Scrollbar.value > mTargetValue)
-            {
-                time += Time.deltaTime;
-                float value = _Clip.Evaluate(time) * SmoothValue;
-                m_Scrollbar.value -= value;
-                if (m_Scrollbar.value <=mTargetValue)
-                {
-                    m_Scrollbar.value = mTargetValue;
-                    mNeedMove = false;
-                    time = 0f;
-                }
-            }
+            m_Scrollbar.value = Mathf.SmoothDamp(m_Scrollbar.value, mTargetValue, ref mMoveSpeed, SMOOTH_TIME);
         }
     }
+
 
 }
