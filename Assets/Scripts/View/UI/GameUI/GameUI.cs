@@ -19,7 +19,11 @@ public class GameUI : MonoBehaviour
     private Text mMinFootCountTxt;
     private int Count = 0;
     private string[] mFootMin = new string[1119];
-    public string[] FootMin { get { return mFootMin; }
+    public string[] FootMin {
+        get
+        {
+            return mFootMin;
+        }
         set
         {
             mFootMin = value;
@@ -35,7 +39,7 @@ public class GameUI : MonoBehaviour
         }
         FootMin[Index] = FootCount.ToString();
         string InitData = string.Empty;
-        for (int j = 0; j < 1200; j++)
+        for (int j = 0; j < 1119; j++)
         {
             if (j == 1119)
             {
@@ -82,6 +86,12 @@ public class GameUI : MonoBehaviour
         mMinFootCountTxt = transform.Find("MaxFootCount").GetChild(0).GetComponent<Text>();
         mReStartlBtn.onClick.AddListener(OnRestartStartClick);
         mFootCountTxt.text = "0";
+
+        for (int i = 0; i < mFootMin.Length; i++)
+        {
+            mFootMin[i] = "0";
+        }
+
     }
     public void SetFillCountTxt(int count)
     {

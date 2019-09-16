@@ -4557,7 +4557,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00036621094, y: 0}
+  m_AnchoredPosition: {x: 2040, y: 0}
   m_SizeDelta: {x: 4800, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &232072229
@@ -11734,7 +11734,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1443458661
+  m_SortingLayerID: -1351775359
   m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: d0b7b3d38c3482b499a5d581db83d5d2, type: 3}
@@ -11991,8 +11991,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_HandleRect: {fileID: 1732903303}
   m_Direction: 0
-  m_Value: 0.49999994
-  m_Size: 0.14990832
+  m_Value: 0
+  m_Size: 0.15
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
