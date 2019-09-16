@@ -14,7 +14,7 @@ public class PlayUI : MonoBehaviour {
     private Button mSetBtn;
     private void Start()
     {
-        mGoldTxt = transform.Find("Gold").Find("GoldTxt").GetComponent<Text>();
+      
         mChangeLvBtn = transform.Find("ChangeLvBtn").GetComponent<Button>();
         mGameActiveBtn= transform.Find("ButtomGroup").Find("GameActiveBtn").GetComponent<Button>();
         mMailBox = transform.Find("ButtomGroup").Find("MailBox").GetComponent<Button>();
@@ -29,6 +29,10 @@ public class PlayUI : MonoBehaviour {
 
     public void SetGoldCount()
     {
+        if (mGoldTxt == null)
+        {
+            mGoldTxt = transform.Find("Gold").Find("GoldTxt").GetComponent<Text>();
+        }
         mGoldTxt.text = GoldSystem.Instance.GetGoldMount(0).ToString();
     }
     public void OnChangeLvBtnClick(Button button)
@@ -37,5 +41,4 @@ public class PlayUI : MonoBehaviour {
         View.Instance.setChangeDiffuseUI(true);
         View.Instance.setCancelBtn();
     }
-
 }

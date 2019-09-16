@@ -68,6 +68,7 @@
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\GoldEffect.cs" />
     <Compile Include="Assets\Scripts\AStar\AStart.cs" />
     <Compile Include="Assets\Scripts\Ctrl\Ctrl.cs" />
     <Compile Include="Assets\Scripts\Ctrl\GoldSystem\GoldSystem.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\Scripts\Ctrl\Map\MapOne.cs" />
     <Compile Include="Assets\Scripts\Ctrl\Map\ShadowDrag\ShadowDrag.cs" />
     <Compile Include="Assets\Scripts\Ctrl\Map\TrailDrag\TrailDragControll.cs" />
+    <Compile Include="Assets\Scripts\Ctrl\SevenGold\SevenGolf.cs" />
     <Compile Include="Assets\Scripts\Global\ConfigReader.cs" />
     <Compile Include="Assets\Scripts\Global\FileLoad.cs" />
     <Compile Include="Assets\Scripts\Global\LoadFileToDic.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="Assets\Scripts\View\UI\ChooseLvUI\SliderControl.cs" />
     <Compile Include="Assets\Scripts\View\UI\GameFinishUI\GameFinishUI.cs" />
     <Compile Include="Assets\Scripts\View\UI\GameUI\GameUI.cs" />
+    <Compile Include="Assets\Scripts\View\UI\GetGoldUI\GetGoldUI.cs" />
     <Compile Include="Assets\Scripts\View\UI\PlayUI\EffectCtroll\BgPlayEffectCtroll.cs" />
     <Compile Include="Assets\Scripts\View\UI\PlayUI\EffectCtroll\ChangeLvEffect.cs" />
     <Compile Include="Assets\Scripts\View\UI\PlayUI\PlayUI.cs" />

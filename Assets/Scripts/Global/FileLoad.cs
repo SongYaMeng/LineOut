@@ -58,7 +58,6 @@ public class FileLoad : MonoBehaviour
             GoldSystem.Instance.AddDatas(1010, 0);
             GoldSystem.Instance.AddDatas(1111, 0);
             GoldSystem.Instance.AddDatas(1212, 0);
-            GoldSystem.Instance.AddDatas(1313, 0);
         }
         else
         {

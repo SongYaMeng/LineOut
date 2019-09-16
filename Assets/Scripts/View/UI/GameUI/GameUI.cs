@@ -76,8 +76,7 @@ public class GameUI : MonoBehaviour
         mReStartlBtn = transform.Find("PannelBtn").Find("ReStartlBtn").GetComponent<Button>();
         mTipBtn = transform.Find("PannelBtn").Find("TipBtn").GetComponent<Button>();
         MTipGold = mTipBtn.GetComponentInChildren<Text>();
-        mLv = transform.Find("Star").Find("Lv").GetComponent<Text >();
-        mGoldTxt = transform.Find("Gold").Find("GoldTxt").GetComponent<Text>();
+        mLv = transform.Find("Star").Find("Lv").GetComponent<Text >(); 
         mFillCountTxt = transform.Find("FillCount").GetChild(0).GetComponent<Text>();
         mFootCountTxt = transform.Find("FootCount").GetChild(0).GetComponent<Text>();
         mMinFootCountTxt = transform.Find("MaxFootCount").GetChild(0).GetComponent<Text>();
@@ -113,6 +112,10 @@ public class GameUI : MonoBehaviour
     }
     public void SetGoldCount()
     {
+        if (mGoldTxt == null)
+        {
+            mGoldTxt = transform.Find("Gold").Find("GoldTxt").GetComponent<Text>();
+        }
         mGoldTxt.text = GoldSystem.Instance.GetGoldMount(0).ToString();
     }
     public void OnRestartStartClick()

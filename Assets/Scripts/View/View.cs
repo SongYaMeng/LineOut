@@ -21,16 +21,23 @@ public class View : MonoSingleton<View>
     private GameFinishUI mGameFinishUI;
     public GameFinishUI GameFinishUI { get { return mGameFinishUI; } }
 
+    private GetGoldUI mGetGoldUI;
+    public GetGoldUI GetGoldUI { get { return mGetGoldUI; } }
+
+
+    private GoldEffect mGoldEffect;
+    public GoldEffect GoldEffect { get { return mGoldEffect; } }
     private void Start()
-    {
+   {     
         mEniroment = GameObject.FindWithTag("Eniroment").transform;
         mCancelBtn = transform.GetChild(0).Find("CancelBtn").GetComponent<Button>();
         mCancelBtn.onClick.AddListener(OnCancelClick);
         mPlayUI = transform.GetChild(0).Find("PlayUI").GetComponent<PlayUI>();
         mGameUI = transform.GetChild(0).Find("GameUI").GetComponent<GameUI>();
-        mGameFinishUI = transform.GetChild(0).Find("GameFinishUI").GetComponent<GameFinishUI>();
+        mGameFinishUI = transform.GetChild(0).Find("GameFinishUI").GetComponent<GameFinishUI>();     
         mChangeDiffuseUI = transform.GetChild(0).Find("ChangeDiffuseUI").GetComponent<ChangeDiffuseUI>();
         mChooseLvUI= transform.GetChild(0).Find("ChooseLvUI").GetComponent<ChooseLvUI>();
+        mGoldEffect = transform.GetChild(0).Find("GoldEffect").GetComponent<GoldEffect>();
         InitUI();
     }
 
@@ -70,6 +77,17 @@ public class View : MonoSingleton<View>
     {
         GameFinishUI.gameObject.SetActive(b);
     }
+
+    public void setGetGoldUI(bool b = true)
+    {
+        if (mGetGoldUI == null)
+        {
+            mGetGoldUI = transform.GetChild(0).Find("GetGold").GetComponent<GetGoldUI>();
+        }
+        mGetGoldUI.gameObject.SetActive(b);
+    }
+
+
     public void setChangeDiffuseUI(bool b = true)
     {
         mChangeDiffuseUI.gameObject.SetActive(b);
@@ -82,6 +100,10 @@ public class View : MonoSingleton<View>
     {
         mCancelBtn.gameObject.SetActive(b);
     }
+    public void setGoldEffect(bool b = true)
+    {
+        GoldEffect.gameObject.SetActive(b);
+    }
     #endregion
     public void InitUI()
     {
@@ -90,6 +112,7 @@ public class View : MonoSingleton<View>
         setCancelBtn(false);
         setGameUI(false);
         setGameFinishUI(false);
+        setGoldEffect(false);
     }
 
 

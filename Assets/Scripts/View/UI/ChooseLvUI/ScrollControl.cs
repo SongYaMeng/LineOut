@@ -106,6 +106,7 @@ public class ScrollControl : MonoBehaviour
 
     void Start()
     {
+        m_HScrollBar.value = 0;
         InputControl.Instance.EVENT_MOUSE_DOWN += OnPointerDown;
         InputControl.Instance.EVENT_MOUSE_UP += OnPointerUp;
         InputControl.Instance.EVENT_MOUSE_DRAG += OnDrag;
