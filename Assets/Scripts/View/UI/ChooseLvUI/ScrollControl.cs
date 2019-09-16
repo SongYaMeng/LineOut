@@ -10,16 +10,6 @@ public class ScrollControl : MonoBehaviour
     public Scrollbar m_HScrollBar;
 
     /// <summary>
-    /// 竖向滚动条
-    /// </summary>
-    public Scrollbar[] m_VScrollBars;
-
-    /// <summary>
-    /// 有竖向滚动的页面
-    /// </summary>
-    public int[] m_VScrollIndexs;
-
-    /// <summary>
     /// 页面个数
     /// </summary>
     public int m_Num;
@@ -60,10 +50,6 @@ public class ScrollControl : MonoBehaviour
     private float mDragParam = 0;
     private float mPageWidth = 0;
     /// <summary>
-    /// 是否需要进行滑动方向判定
-    /// </summary>
-    private bool mNeedCaculate = false;
-    /// <summary>
     /// 是否进行竖向滚动
     /// </summary>
     private bool mIsScollV = false;
@@ -80,38 +66,25 @@ public class ScrollControl : MonoBehaviour
     }
     private void OnPointerDown(Vector2 mousePosition)
     {
-        // 记录当前value
         mOldValue = m_HScrollBar.value;
-        mOldPosition = Input.mousePosition;
-        // mCanMove = false;
+        mOldPosition = mousePosition;
         mCurrentIndex = GetCurrentIndex(mOldValue);
-        // 判断当前是否在可竖向滑动的页面上
     }
     private void OnDrag(Vector2 mousePosition)
     {
-        Vector2 Drag = Input.mousePosition - mOldPosition;
 
-        if (mNeedCaculate)
-        {
-            mNeedCaculate = false;
-        }
-        DragScreen(Drag);
+        DragScreen(Input.mousePosition-mOldPosition);
         mOldPosition = Input.mousePosition;
     }
     private void OnPointerUp(Vector2 mousePosition)
     {
-        Vector2  Drag = Input.mousePosition - mOldPosition;
-        DragScreen(Drag);
-
         mOldPosition = Input.mousePosition;
-
         float valueOffset = m_HScrollBar.value - mOldValue;
         if (Mathf.Abs((valueOffset) / mPageWidth) > m_NextLimit)
         {
             mTargetIndex += valueOffset > 0 ? 1 : -1;
             mTargetPosition = (mTargetIndex - 1) * mPageWidth;
         }
-
         mCanMove = true;
     }
     private int GetCurrentIndex(float pCurrentValue)
@@ -121,7 +94,6 @@ public class ScrollControl : MonoBehaviour
     private void DragScreen(Vector2 pDragVector)
     {
             float oldValue = m_HScrollBar.value;
-            m_HScrollBar.value -= pDragVector.x / Screen.width * mDragParam;
             mMoveSpeed = m_HScrollBar.value - oldValue;
     }
     void Awake()

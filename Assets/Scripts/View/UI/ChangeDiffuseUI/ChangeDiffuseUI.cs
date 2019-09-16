@@ -38,7 +38,6 @@ public class ChangeDiffuseUI : MonoBehaviour {
 
     public void SetStarTxt(int index,int passMount)
     {
-
         if (mBasicPack[index].transform.Find("LoclImg").gameObject.activeSelf==true)
         {
             return;

@@ -1070,7 +1070,5 @@ E:\Unity Project\Lineout\Temp\bin\Debug\UnityEngine.LocalizationModule.xml
 E:\Unity Project\Lineout\Temp\bin\Debug\UnityEngine.ProfilerModule.xml
 E:\Unity Project\Lineout\Temp\bin\Debug\UnityEngine.StreamingModule.xml
 E:\Unity Project\Lineout\Temp\bin\Debug\DOTween.xml
-E:\Unity Project\Lineout\Temp\bin\Debug\UnityEditor.UI.dll
-E:\Unity Project\Lineout\Temp\bin\Debug\UnityEditor.UI.xml
 C:\Users\Administrator\Desktop\Unity Project\Lineout\Temp\bin\Debug\UnityEditor.UI.dll
 C:\Users\Administrator\Desktop\Unity Project\Lineout\Temp\bin\Debug\UnityEditor.UI.xml
