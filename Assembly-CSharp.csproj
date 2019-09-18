@@ -68,6 +68,9 @@
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\Scripts\Ads\AdsUnityBanner.cs" />
+    <Compile Include="Assets\Scripts\Ads\AdsUnityViedo.cs" />
+    <Compile Include="Assets\Scripts\Ads\IadsBase.cs" />
     <Compile Include="Assets\Scripts\AStar\AStart.cs" />
     <Compile Include="Assets\Scripts\Ctrl\Ctrl.cs" />
     <Compile Include="Assets\Scripts\Ctrl\GoldSystem\GoldSystem.cs" />
@@ -84,7 +87,6 @@
     <Compile Include="Assets\Scripts\Global\FileLoad.cs" />
     <Compile Include="Assets\Scripts\Global\LoadFileToDic.cs" />
     <Compile Include="Assets\Scripts\Global\MonoSingleton.cs" />
-    <Compile Include="Assets\Scripts\GoldEffect.cs" />
     <Compile Include="Assets\Scripts\View\UI\ChangeDiffuseUI\ChangeDiffuseUI.cs" />
     <Compile Include="Assets\Scripts\View\UI\ChangeDiffuseUI\ScrollbarControll.cs" />
     <Compile Include="Assets\Scripts\View\UI\ChooseLvUI\ChooseLvUI.cs" />
@@ -94,11 +96,19 @@
     <Compile Include="Assets\Scripts\View\UI\GameFinishUI\GameFinishUI.cs" />
     <Compile Include="Assets\Scripts\View\UI\GameUI\GameUI.cs" />
     <Compile Include="Assets\Scripts\View\UI\GetGoldUI\GetGoldUI.cs" />
+    <Compile Include="Assets\Scripts\View\UI\GetGoldUI\GoldEffect.cs" />
     <Compile Include="Assets\Scripts\View\UI\PlayUI\EffectCtroll\BgPlayEffectCtroll.cs" />
     <Compile Include="Assets\Scripts\View\UI\PlayUI\EffectCtroll\ChangeLvEffect.cs" />
     <Compile Include="Assets\Scripts\View\UI\PlayUI\PlayUI.cs" />
     <Compile Include="Assets\Scripts\View\View.cs" />
+    <Compile Include="Assets\UmengGameAnalytics\Scripts\Analytics.cs" />
+    <Compile Include="Assets\UmengGameAnalytics\Scripts\DplusAgent.cs" />
+    <Compile Include="Assets\UmengGameAnalytics\Scripts\GA.cs" />
+    <Compile Include="Assets\UmengGameAnalytics\Scripts\SimpleJSON.cs" />
+    <Compile Include="Assets\UmengGameAnalytics\Scripts\UmengAndroidLifeCycleCallBack.cs" />
+    <Compile Include="Assets\UmengManager.cs" />
     <None Include="Assets\StreamingAssets\GameLevAndTip.txt" />
+    <None Include="Assets\UnityAds\link.xml" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Administrator/Desktop/Unity Project/Lineout/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
@@ -315,6 +325,12 @@
     </Reference>
     <Reference Include="DOTween">
       <HintPath>C:/Users/Administrator/Desktop/Unity Project/Lineout/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Advertisements.Editor">
+      <HintPath>C:/Users/Administrator/Desktop/Unity Project/Lineout/Assets/UnityAds/UnityEngine.Advertisements.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Monetization.Editor">
+      <HintPath>C:/Users/Administrator/Desktop/Unity Project/Lineout/Assets/UnityAds/UnityEngine.Monetization.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>

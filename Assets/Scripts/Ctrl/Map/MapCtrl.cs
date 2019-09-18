@@ -185,7 +185,7 @@ public class MapCtrl : MonoBehaviour
                     btn.transform.eulerAngles = new Vector3(0, 0, 90);
                     mgo.transform.localPosition = new Vector3(0.6f, 0, 0);
                     mgo.transform.localEulerAngles = new Vector3(0, 0, 0);
-                    mgo.transform.localScale = new Vector3(3.35f, 0.7f, 1);
+                    mgo.transform.localScale = new Vector3(3.6f, 0.7f, 1);
                     mgo.SetActive(true);
                 }
                 else if (Dir.x == -1)
@@ -194,7 +194,7 @@ public class MapCtrl : MonoBehaviour
                     btn.transform.eulerAngles = new Vector3(0, 0, -90);
                     mgo.transform.localPosition = new Vector3(-0.6f, 0, 0);
                     mgo.transform.localEulerAngles = new Vector3(0, 0, 0);
-                    mgo.transform.localScale = new Vector3(3.35f, 0.7f, 1);
+                    mgo.transform.localScale = new Vector3(3.6f, 0.7f, 1);
                     mgo.SetActive(true);
                 }
                 else if (Dir.y == 1)
@@ -202,7 +202,7 @@ public class MapCtrl : MonoBehaviour
                     mgo.GetComponent<SpriteRenderer>().sprite = levelSys.GetTraillSprite(btn.name);
                     btn.transform.eulerAngles = new Vector3(0, 0, 180);
                     mgo.transform.localPosition = new Vector3(0, 0.6f, 0);
-                    mgo.transform.localScale = new Vector3(3.35f, 0.7f, 1);
+                    mgo.transform.localScale = new Vector3(3.6f, 0.7f, 1);
                     mgo.transform.localEulerAngles = new Vector3(0, 0, 90);
                     mgo.SetActive(true);
                 }
@@ -211,7 +211,7 @@ public class MapCtrl : MonoBehaviour
                     mgo.GetComponent<SpriteRenderer>().sprite = levelSys.GetTraillSprite(btn.name);
                     btn.transform.eulerAngles = new Vector3(0, 0, 0);
                     mgo.transform.localPosition = new Vector3(0, -0.6f, 0);
-                    mgo.transform.localScale = new Vector3(3.35f, 0.7f, 1);
+                    mgo.transform.localScale = new Vector3(3.6f, 0.7f, 1);
                     mgo.transform.localEulerAngles = new Vector3(0, 0, 90);
                     mgo.SetActive(true);
                 }
@@ -225,27 +225,27 @@ public class MapCtrl : MonoBehaviour
                         btn.mTargetBtnColor.transform.eulerAngles = new Vector3(0, 0, 90);
                         mgo1.transform.localPosition = new Vector3(-0.4f, 0, 0);
                         mgo1.transform.localEulerAngles = new Vector3(0, 0, 0);
-                        mgo1.transform.localScale = new Vector3(3.35f, 0.7f, 1);
+                        mgo1.transform.localScale = new Vector3(3.6f, 0.7f, 1);
                     }
                     else if (Dir2.x == -1)
                     {
                         btn.mTargetBtnColor.transform.eulerAngles = new Vector3(0, 0, -90);
                         mgo1.transform.localPosition = new Vector3(0.4f, 0, 0);
                         mgo1.transform.localEulerAngles = new Vector3(0, 0, 0);
-                        mgo1.transform.localScale = new Vector3(3.35f, 0.7f, 1);
+                        mgo1.transform.localScale = new Vector3(3.6f, 0.7f, 1);
                     }
                     else if (Dir2.y == 1)
                     {
                         btn.mTargetBtnColor.transform.eulerAngles = new Vector3(0, 0, 180);
                         mgo1.transform.localPosition = new Vector3(0, -0.4f, 0);
-                        mgo1.transform.localScale = new Vector3(3.35f, 0.7f, 1);
+                        mgo1.transform.localScale = new Vector3(3.6f, 0.7f, 1);
                         mgo1.transform.localEulerAngles = new Vector3(0, 0, 90);
                     }
                     else if (Dir2.y == -1)
                     {
                         btn.mTargetBtnColor.transform.eulerAngles = new Vector3(0, 0, 0);
                         mgo1.transform.localPosition = new Vector3(0, 0.4f, 0);
-                        mgo1.transform.localScale = new Vector3(3.35f, 0.7f, 1);
+                        mgo1.transform.localScale = new Vector3(3.6f, 0.7f, 1);
                         mgo1.transform.localEulerAngles = new Vector3(0, 0, 90);
                     }
                 }
@@ -683,28 +683,27 @@ public class MapCtrl : MonoBehaviour
         }
         for (int i = 0; i < btn.HelpPos.Count - 1; i++)
         {
-            Vector2 Path = btn.HelpPos[i + 1].mPosition - btn.HelpPos[i].mPosition;
-            MapOne one = new MapOne();
-            one.XPosition = -1;
-            one.YPosition = -1;
+            Vector2 Path = btn.HelpPos[i + 1].mPosition - btn.HelpPos[i].mPosition;           
+           float XPosition = -1;
+            float YPosition = -1;
             if (Path.x != 0)
             {
                 int d = (int)btn.HelpPos[i].XPosition;
-                while (one.XPosition != btn.HelpPos[i + 1].XPosition)
+                while (XPosition != btn.HelpPos[i + 1].XPosition)
                 {
                     d += (int)(Path.x / Mathf.Abs(Path.x));
-                    one = GetMapOne(d, (int)btn.HelpPos[i].YPosition);
-                    btn.AddBtnPath(one);
+                    XPosition = GetMapOne(d, (int)btn.HelpPos[i].YPosition).XPosition;
+                    btn.AddBtnPath(GetMapOne(d, (int)btn.HelpPos[i].YPosition));
                 }
             }
             else
             {
                 int c = (int)btn.HelpPos[i].YPosition;
-                while (one.YPosition != btn.HelpPos[i + 1].YPosition)
+                while (YPosition != btn.HelpPos[i + 1].YPosition)
                 {
                     c += (int)(Path.y / Mathf.Abs(Path.y));
-                    one = GetMapOne((int)btn.HelpPos[i].XPosition, c);
-                    btn.AddBtnPath(one);
+                     YPosition = GetMapOne((int)btn.HelpPos[i].XPosition, c).YPosition;
+                    btn.AddBtnPath(GetMapOne((int)btn.HelpPos[i].XPosition, c));
                 }
             }
         }

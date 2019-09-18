@@ -9,9 +9,11 @@ public class SevenGolf : MonoSingleton<SevenGolf>
     private const string consecutiveLogInNum = "ConsecutiveLogInNum";
     // 上次登陆的信息
    private const string lastLogIn = "LastLogIn";
-    public  int CurrentDay=1;
+    [HideInInspector]
+    public  int CurrentDay;
     private void Start()
     {
+        PlayerPrefs.SetString(lastLogIn, "");
         if (CheckLastLogIn() == 1)  // 昨日登陆过，今日首次登陆
         {
             View.Instance.setGetGoldUI(true);
@@ -42,6 +44,15 @@ public class SevenGolf : MonoSingleton<SevenGolf>
         {
             //没有数据，还没登陆过
             lastLogInInfoNum = -1;
+            System.DateTime today = System.DateTime.Now;
+            if ((int)today.DayOfWeek == 0)
+            {
+                CurrentDay = 7;
+            }
+            else
+            {
+                CurrentDay = (int)today.DayOfWeek;
+            }
         }
         else
         {

@@ -1070,3 +1070,5 @@ E:\Unity Project\Lineout\Temp\bin\Debug\UnityEngine.LocalizationModule.xml
 E:\Unity Project\Lineout\Temp\bin\Debug\UnityEngine.ProfilerModule.xml
 E:\Unity Project\Lineout\Temp\bin\Debug\UnityEngine.StreamingModule.xml
 E:\Unity Project\Lineout\Temp\bin\Debug\DOTween.xml
+C:\Users\Administrator\Desktop\Unity Project\Lineout\Temp\bin\Debug\UnityEngine.Advertisements.Editor.dll
+C:\Users\Administrator\Desktop\Unity Project\Lineout\Temp\bin\Debug\UnityEngine.Monetization.Editor.dll

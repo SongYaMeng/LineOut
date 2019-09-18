@@ -10,6 +10,7 @@ public class GameUI : MonoBehaviour
     private Button mSetBtn;
     private Button mReStartlBtn;
     private Button mTipBtn;
+    private Button LookAdsBtn;
     private Text MTipGold;
     private Text mLv;
     private Text mGoldTxt;
@@ -17,6 +18,7 @@ public class GameUI : MonoBehaviour
     private Transform mEniroment;
     private Text mFootCountTxt;
     private Text mMinFootCountTxt;
+    private GameObject mAdsBg;
     private int Count = 0;
     private string[] mFootMin = new string[1119];
     public string[] FootMin {
@@ -57,7 +59,6 @@ public class GameUI : MonoBehaviour
     {
         return FootMin[GetIndex ()- 1];
     }
-
     public int GetIndex()
     {
         int index = (int)LevelCreateSys.Instance.Diff;
@@ -79,6 +80,7 @@ public class GameUI : MonoBehaviour
         mSetBtn = transform.Find("PannelBtn").Find("SetBtn").GetComponent<Button>();
         mReStartlBtn = transform.Find("PannelBtn").Find("ReStartlBtn").GetComponent<Button>();
         mTipBtn = transform.Find("PannelBtn").Find("TipBtn").GetComponent<Button>();
+        LookAdsBtn = transform.Find("PannelBtn").Find("LookAdsBtn").GetComponent<Button>();
         MTipGold = mTipBtn.GetComponentInChildren<Text>();
         mLv = transform.Find("Star").Find("Lv").GetComponent<Text >(); 
         mFillCountTxt = transform.Find("FillCount").GetChild(0).GetComponent<Text>();
@@ -86,10 +88,36 @@ public class GameUI : MonoBehaviour
         mMinFootCountTxt = transform.Find("MaxFootCount").GetChild(0).GetComponent<Text>();
         mReStartlBtn.onClick.AddListener(OnRestartStartClick);
         mFootCountTxt.text = "0";
-
+        mAdsBg = transform.Find("AdsBg").gameObject;
+        SetAdsActive(false);
         for (int i = 0; i < mFootMin.Length; i++)
         {
             mFootMin[i] = "0";
+        }
+    }
+    public void SetAdsActive(bool b=true)
+    {
+        mAdsBg.SetActive(b);
+    }
+
+    public void OnLookAdsClick()
+    {
+        mAdsBg.transform.position = new Vector3(0,0,-5);
+        mAdsBg.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+        SetAdsActive(true);
+    }
+    public void OnCanelClick()
+    {
+        SetAdsActive(false);
+        List<BtnColor> btns = GameObject.FindWithTag("Eniroment").transform.GetComponent<MapCtrl>().mBtnColors;
+        foreach (BtnColor btn in btns)
+        {
+            btn.GetComponent<BoxCollider2D>().enabled = true;
+            btn.mTargetBtnColor.GetComponent<BoxCollider2D>().enabled = true;
+            foreach (MapOne one in btn.BtnPath)
+            {
+                one.GameOne.transform.Find("TrailDrag").GetComponent<BoxCollider2D>().enabled = true;
+            }
         }
 
     }
@@ -137,8 +165,7 @@ public class GameUI : MonoBehaviour
     }
     public void OnRestartInit()
     {
-        List<BtnColor> btns = mEniroment.GetComponent<MapCtrl>().mBtnColors;
-        
+        List<BtnColor> btns = mEniroment.GetComponent<MapCtrl>().mBtnColors;       
         foreach (BtnColor map in btns)
         {
                 if (map == null)

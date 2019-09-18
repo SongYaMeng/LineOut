@@ -61,7 +61,9 @@ public class BtnColorDrag : MonoBehaviour
         if (btn.mTargetBtnColor.BtnPath.Count != 1)
         {
             btn.mTargetBtnColor.BtnPath.RemoveRange(1, btn.mTargetBtnColor.BtnPath.Count - 1);
+            mMapCtrl.SetBtnColorState();
         }
+
     }
     private void OnMouseUp()
     {
